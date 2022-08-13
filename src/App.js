@@ -1,8 +1,9 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Header from "./components/Header.js";
-import Navbar from "./components/Navbar.js";
-import Profile from "./components/Profile.js";
+import React from "react";
+import Header from "./components/Header.jsx";
+import Navbar from "./components/Navbar.jsx";
+import Profile from "./components/Profile.jsx";
 
 const App = () => {
   return (

@@ -1,10 +1,10 @@
-// import React from "react";
+import React from "react";
 
 const Header = () => {
   return (
-    <Header className="header">
+    <header className="header">
       <img src="https://www.clipartmax.com/png/full/152-1526590_emblem-of-elysium-aperture-science-logo.png"></img>
-    </Header>
+    </header>
   );
 };
 
