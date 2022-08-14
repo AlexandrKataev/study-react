@@ -1,4 +1,5 @@
 import React from "react";
+import MyPosts from "./MyPosts/MyPosts";
 import s from "./Profile.module.css";
 
 const Profile = () => {
@@ -10,13 +11,7 @@ const Profile = () => {
       <div className={s.avatar}>
         <img src="https://www.hairstylenext.com/wp-content/uploads/2014/09/Tom-Cruise-Hairstyle.jpg" />
       </div>
-      <div>
-        My posts
-        <div>New post</div>
-      </div>
-      <div>post 1</div>
-      <div>post 2</div>
-      <div>post 3</div>
+      <MyPosts />
     </div>
   );
 };
