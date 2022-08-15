@@ -1,11 +1,21 @@
-.content {
-  grid-area: c;
+.dialogs {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
   background-color: rgb(122, 174, 194);
 }
-.content img {
-  width: 100%;
+
+.dialogItems {
+  padding: 20px;
 }
-.avatar img {
-  width: 100px;
-  border-radius: 50%;
+.dialogItems .active {
+  color: red;
+}
+
+.dialog {
+}
+.messages {
+  padding: 20px;
+}
+
+.message {
 }
