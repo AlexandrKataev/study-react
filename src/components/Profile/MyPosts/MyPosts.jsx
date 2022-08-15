@@ -9,9 +9,9 @@ const MyPosts = () => {
         My posts
         <div>New post</div>
       </div>
-      <Post message="Hello!" />
-      <Post message="How are you?" />
-      <Post message="bye bye!" />
+      <Post message="Hello!" likes="5" />
+      <Post message="How are you?" likes="13" />
+      <Post message="bye bye!" likes="28" />
     </div>
   );
 };

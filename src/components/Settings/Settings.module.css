@@ -1,0 +1,11 @@
+.content {
+  grid-area: c;
+  background-color: rgb(122, 174, 194);
+}
+.content img {
+  width: 100%;
+}
+.avatar img {
+  width: 100px;
+  border-radius: 50%;
+}

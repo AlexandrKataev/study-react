@@ -8,7 +8,7 @@ const Post = (props) => {
         <img src="https://pixelbox.ru/wp-content/uploads/2021/05/ava-vk-animal-91.jpg"></img>
         {props.message}
       </div>
-      <span>like</span>
+      <span>{props.likes} likes</span>
     </div>
   );
 };
