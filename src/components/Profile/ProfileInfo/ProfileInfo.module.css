@@ -7,10 +7,8 @@
 }
 .avatar img {
   width: 100px;
+  border-radius: 50%;
 }
-.postsBlock {
+.discriptionBlock {
   padding: 10px;
-}
-.posts {
-  margin: 20px 0px 0px 0px;
 }

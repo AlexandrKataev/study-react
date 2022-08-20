@@ -2,31 +2,65 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import { NavLink } from "react-router-dom";
 
+const DialogItem = (props) => {
+  let path = "/dialogs/" + props.id;
+  return (
+    <div className={s.dialog}>
+      <NavLink to={path}>{props.name}</NavLink>
+    </div>
+  );
+};
+
+const Message = (props) => {
+  return <div className={s.message}>{props.message}</div>;
+};
+
 const Dialogs = () => {
+  // Данные с "сервера"
+  const dialogsData = [
+    {
+      id: 1,
+      name: "Dima",
+    },
+    {
+      id: 2,
+      name: "Andrew",
+    },
+    {
+      id: 3,
+      name: "Sveta",
+    },
+    {
+      id: 4,
+      name: "Sanek",
+    },
+    {
+      id: 5,
+      name: "Valera",
+    },
+  ];
+
+  const messagesData = [
+    { id: 1, message: "Hi" },
+    { id: 2, message: "How are yo?" },
+    { id: 3, message: "Bye" },
+    { id: 4, message: "Bye" },
+    { id: 5, message: "Bye" },
+    { id: 6, message: "Bye" },
+  ];
+
+  // Массивы на основе входящих данных с "сервера"
+  const dialogsElements = dialogsData.map((d) => (
+    <DialogItem name={d.name} id={d.id} />
+  ));
+
+  const messagesElements = messagesData.map((m) => (
+    <Message message={m.message} id={m.id} />
+  ));
   return (
     <div className={s.dialogs}>
-      <div className={s.dialogItems}>
-        <div className={s.dialog}>
-          <NavLink to="/dialogs/1">Dima</NavLink>
-        </div>
-        <div className={s.dialog}>
-          <NavLink to="/dialogs/2">Andrey</NavLink>
-        </div>
-        <div className={s.dialog}>
-          <NavLink to="/dialogs/3">Sveta</NavLink>
-        </div>
-        <div className={s.dialog}>
-          <NavLink to="/dialogs/4">Sanek</NavLink>
-        </div>
-        <div className={s.dialog}>
-          <NavLink to="/dialogs/5">Valera</NavLink>
-        </div>
-      </div>
-      <div className={s.messages}>
-        <div className={s.message}>Hi</div>
-        <div className={s.message}>How are you?</div>
-        <div className={s.message}>Bye</div>
-      </div>
+      <div className={s.dialogItems}>{dialogsElements}</div>
+      <div className={s.messages}>{messagesElements}</div>
     </div>
   );
 };
