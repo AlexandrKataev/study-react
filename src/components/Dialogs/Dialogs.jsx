@@ -3,46 +3,13 @@ import s from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 
-const Dialogs = () => {
-  // Данные с "сервера"
-  const dialogsData = [
-    {
-      id: 1,
-      name: "Dima",
-    },
-    {
-      id: 2,
-      name: "Andrew",
-    },
-    {
-      id: 3,
-      name: "Sveta",
-    },
-    {
-      id: 4,
-      name: "Sanek",
-    },
-    {
-      id: 5,
-      name: "Valera",
-    },
-  ];
-
-  const messagesData = [
-    { id: 1, message: "Hi" },
-    { id: 2, message: "How are yo?" },
-    { id: 3, message: "Bye" },
-    { id: 4, message: "Bye" },
-    { id: 5, message: "Bye" },
-    { id: 6, message: "Bye" },
-  ];
-
+const Dialogs = (props) => {
   // Массивы на основе входящих данных с "сервера"
-  const dialogsElements = dialogsData.map((d) => (
+  const dialogsElements = props.dialogsData.map((d) => (
     <DialogItem name={d.name} id={d.id} />
   ));
 
-  const messagesElements = messagesData.map((m) => (
+  const messagesElements = props.messagesData.map((m) => (
     <Message message={m.message} id={m.id} />
   ));
   return (
