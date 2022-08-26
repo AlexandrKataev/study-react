@@ -19,3 +19,16 @@
 
 .message {
 }
+.newMessage {
+  display: grid;
+  grid-template-columns: 1.3fr 10fr;
+  grid-column-start: 2;
+  align-content: center;
+  padding: 0 0 0 30px;
+}
+.newMessage textarea {
+  width: 40em;
+  grid-area: newMessageText;
+}
+.newMessage button {
+}

@@ -7,15 +7,21 @@ const MyPosts = (props) => {
     <Post message={p.message} likes={p.likes} id={p.id} />
   ));
 
+  const newPostElement = React.createRef();
+
+  const addPost = () => {
+    const text = newPostElement.current.value;
+    alert(text);
+  };
   return (
     <div className={s.content}>
       <div>
         My posts
         <div>
-          <textarea></textarea>
+          <textarea ref={newPostElement}></textarea>
         </div>
         <div>
-          <button>New Post</button>
+          <button onClick={addPost}>New Post</button>
         </div>
       </div>
       <div class={s.posts}>{postsElements}</div>
