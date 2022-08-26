@@ -1,21 +1,17 @@
-.dialogs {
-  display: grid;
-  grid-template-columns: 2fr 10fr;
-  background-color: rgb(122, 174, 194);
-}
-
-.dialogItems {
-  padding: 20px;
-}
-.dialogItems .active {
-  color: red;
-}
-
-.dialog {
-}
-.messages {
-  padding: 20px;
-}
-
 .message {
+  display: inline-block;
+  background-color: rgb(255, 255, 255);
+  margin: 0 0 5px 10px;
+  max-width: 65%;
+  padding: 5px 10px 5px 10px;
+  font-size: 14px;
+  border-radius: 0.5em;
+}
+.you {
+  color: rgb(255, 0, 179) !important;
+}
+.time {
+  font-size: 12px;
+  color: rgb(143, 143, 143);
+  margin: 0px 0px 0px 10px;
 }
