@@ -10,8 +10,9 @@ const MyPosts = (props) => {
   const newPostElement = React.createRef();
 
   const addPost = () => {
+    debugger;
     const text = newPostElement.current.value;
-    alert(text);
+    props.addPost(text);
   };
   return (
     <div className={s.content}>
@@ -24,7 +25,7 @@ const MyPosts = (props) => {
           <button onClick={addPost}>New Post</button>
         </div>
       </div>
-      <div class={s.posts}>{postsElements}</div>
+      <div className={s.posts}>{postsElements}</div>
     </div>
   );
 };
