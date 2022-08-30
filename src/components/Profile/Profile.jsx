@@ -4,11 +4,13 @@ import s from "./Profile.module.css";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = (props) => {
+  console.log(props.newPostText);
   return (
     <div className={s.content}>
       <ProfileInfo />
       <MyPosts
-        posts={props.state.posts}
+        posts={props.profilePage.posts}
+        newPostText={props.profilePage.newPostText}
         addPost={props.addPost}
         updateNewPostText={props.updateNewPostText}
       />

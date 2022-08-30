@@ -1,6 +1,6 @@
 import { rerenderEntireTree } from "../render";
 
-let state = {
+const state = {
   profilePage: {
     posts: [
       { id: 1, message: "Hello!", likes: 5 },
@@ -8,7 +8,7 @@ let state = {
       { id: 3, message: "bye bye!", likes: 28 },
       { id: 4, message: "Hello again!", likes: 50 },
     ],
-    newPostText: "bla-bla-bla",
+    newPostText: "",
   },
   dialogsPage: {
     dialogsData: [
@@ -74,23 +74,43 @@ let state = {
           "Инстаграм заблокирован в России, а мы нет! Друзья, в самом разгаре бронирование мест на майские СПЛАВЫ - мы подготовили для вас самые яркие программы, на сайте FestTur.ru уже появляются туры на лето 2022. Этим летом мы едем на Кавказ, Дагестан, Камчатку, Карелию, Горный Алтай 💙Яркие походы, восхождения, активные сплавы.",
       },
     ],
+    newMessageText: "",
   },
 };
 
-window.state = state;
+// window.state = state;
 
-export const addPost = (postMessage) => {
+export const addPost = () => {
   const newPost = {
     id: 5,
-    message: postMessage,
+    message: state.profilePage.newPostText,
     likes: 0,
   };
   state.profilePage.posts.push(newPost);
+  state.profilePage.newPostText = "";
   rerenderEntireTree(state);
 };
 
 export const updateNewPostText = (newText) => {
   state.profilePage.newPostText = newText;
+  rerenderEntireTree(state);
+};
+
+export const addNewMessage = () => {
+  const date = new Date();
+  //   console.log(`${date.getHours()} : ${date.getMinutes()}`);
+  const newMessage = {
+    id: "you",
+    time: `${date.getHours()}:${date.getMinutes()}`,
+    message: state.dialogsPage.newMessageText,
+  };
+  state.dialogsPage.messagesData.push(newMessage);
+  state.dialogsPage.newMessageText = "";
+  rerenderEntireTree(state);
+};
+
+export const updateNewMessageText = (newText) => {
+  state.dialogsPage.newMessageText = newText;
   rerenderEntireTree(state);
 };
 

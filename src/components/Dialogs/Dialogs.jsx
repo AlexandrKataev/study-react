@@ -2,6 +2,7 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
+import { updateNewMessageText } from "../../redux/state";
 
 const Dialogs = (props) => {
   // Массивы на основе входящих данных с "сервера"
@@ -17,7 +18,12 @@ const Dialogs = (props) => {
 
   const sendMessage = () => {
     const text = newMessage.current.value;
-    alert(text);
+    props.addNewMessage(text);
+  };
+  console.log(props.state.newMessageText);
+  const onNewMessageTextChange = () => {
+    const text = newMessage.current.value;
+    props.updateNewMessageText(text);
   };
 
   return (
@@ -26,7 +32,11 @@ const Dialogs = (props) => {
       <div className={s.messages}>{messagesElements}</div>
       <div className={s.newMessage}>
         <div>
-          <textarea ref={newMessage}></textarea>
+          <textarea
+            ref={newMessage}
+            value={props.state.newMessageText}
+            onChange={onNewMessageTextChange}
+          ></textarea>
         </div>
         <div>
           <button onClick={sendMessage}>Отправить</button>
