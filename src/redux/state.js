@@ -1,5 +1,9 @@
 const store = {
   _state: {
+    _rerenderEntireTree() {
+      console.log("state changed");
+    },
+
     profilePage: {
       posts: [
         { id: 1, message: "Hello!", likes: 5 },
@@ -76,44 +80,43 @@ const store = {
       newMessageText: "",
     },
   },
+
   getState() {
     return this._state;
   },
-  _rerenderEntireTree() {
-    console.log("state changed");
-  },
-  addPost() {
-    const newPost = {
-      id: 5,
-      message: this._state.profilePage.newPostText,
-      likes: 0,
-    };
-    this._state.profilePage.posts.push(newPost);
-    this._state.profilePage.newPostText = "";
-    this._rerenderEntireTree(this._state);
-  },
-  updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._rerenderEntireTree(this._state);
-  },
-  addNewMessage() {
-    const date = new Date();
-    //   console.log(`${date.getHours()} : ${date.getMinutes()}`);
-    const newMessage = {
-      id: "you",
-      time: `${date.getHours()}:${date.getMinutes()}`,
-      message: this._state.dialogsPage.newMessageText,
-    };
-    this._state.dialogsPage.messagesData.push(newMessage);
-    this._state.dialogsPage.newMessageText = "";
-    this._rerenderEntireTree(this._state);
-  },
-  updateNewMessageText(newText) {
-    this._state.dialogsPage.newMessageText = newText;
-    this._rerenderEntireTree(this._state);
-  },
   subscribe(observer) {
     this._rerenderEntireTree = observer;
+  },
+
+  dispatch(action) {
+    // {type: 'ADD-POST' }
+    if (action.type === "ADD-POST") {
+      const newPost = {
+        id: 5,
+        message: this._state.profilePage.newPostText,
+        likes: 0,
+      };
+      this._state.profilePage.posts.push(newPost);
+      this._state.profilePage.newPostText = "";
+      this._rerenderEntireTree(this._state);
+    } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+      this._state.profilePage.newPostText = action.newText;
+      this._rerenderEntireTree(this._state);
+    } else if (action.type === "ADD-MESSAGE") {
+      const date = new Date();
+      //   console.log(`${date.getHours()} : ${date.getMinutes()}`);
+      const newMessage = {
+        id: "you",
+        time: `${date.getHours()}:${date.getMinutes()}`,
+        message: this._state.dialogsPage.newMessageText,
+      };
+      this._state.dialogsPage.messagesData.push(newMessage);
+      this._state.dialogsPage.newMessageText = "";
+      this._rerenderEntireTree(this._state);
+    } else if (action.type === "UPDATE-NEW-MESSAGE-TEXT") {
+      this._state.dialogsPage.newMessageText = action.newText;
+      this._rerenderEntireTree(this._state);
+    }
   },
 };
 
