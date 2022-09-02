@@ -2,7 +2,11 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import { updateNewMessageText } from "../../redux/state";
+import {
+  updateNewMessageText,
+  addMessageActionCreator,
+  updateNewMessageTextActionCreator,
+} from "../../redux/state";
 
 const Dialogs = (props) => {
   // Массивы на основе входящих данных с "сервера"
@@ -17,13 +21,12 @@ const Dialogs = (props) => {
   const newMessage = React.createRef();
 
   const sendMessage = () => {
-    const text = newMessage.current.value;
-    props.dispatch({ type: "ADD-MESSAGE", newText: text });
+    props.dispatch(addMessageActionCreator());
   };
 
   const onNewMessageTextChange = () => {
     const text = newMessage.current.value;
-    props.dispatch({ type: "UPDATE-NEW-MESSAGE-TEXT", newText: text });
+    props.dispatch(updateNewMessageTextActionCreator(text));
   };
 
   return (
