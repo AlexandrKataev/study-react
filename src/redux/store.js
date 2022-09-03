@@ -3,7 +3,7 @@ import { dialogsReducer } from "./dialogs-reducer";
 
 const store = {
   _state: {
-    _rerenderEntireTree() {
+    _callSubscriber() {
       console.log("state changed");
     },
 
@@ -88,14 +88,14 @@ const store = {
     return this._state;
   },
   subscribe(observer) {
-    this._rerenderEntireTree = observer;
+    this._callSubscriber = observer;
   },
 
   dispatch(action) {
     this._state.profilePage = profileReducer(this._state.profilePage, action);
     this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
 
-    this._rerenderEntireTree(this._state);
+    this._callSubscriber(this._state);
   },
 };
 

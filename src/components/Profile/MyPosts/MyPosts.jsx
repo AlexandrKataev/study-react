@@ -1,5 +1,5 @@
 import React from "react";
-import { updateNewPostText } from "../../../redux/state";
+import { updateNewPostText } from "../../../redux/store";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import {
