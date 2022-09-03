@@ -6,7 +6,7 @@ import {
   updateNewMessageText,
   addMessageActionCreator,
   updateNewMessageTextActionCreator,
-} from "../../redux/state";
+} from "../../redux/dialogs-reducer";
 
 const Dialogs = (props) => {
   // Массивы на основе входящих данных с "сервера"
