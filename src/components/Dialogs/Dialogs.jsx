@@ -10,23 +10,25 @@ import {
 
 const Dialogs = (props) => {
   // Массивы на основе входящих данных с "сервера"
-  const dialogsElements = props.state.dialogsData.map((d) => (
+  const state = props.dialogsPage;
+  //   console.log(props);
+  const dialogsElements = state.dialogsData.map((d) => (
     <DialogItem name={d.name} id={d.id} avatar={d.avatar} />
   ));
 
-  const messagesElements = props.state.messagesData.map((m) => (
+  const messagesElements = state.messagesData.map((m) => (
     <Message message={m.message} id={m.id} time={m.time} />
   ));
 
   const newMessage = React.createRef();
 
-  const sendMessage = () => {
-    props.dispatch(addMessageActionCreator());
+  const onSendMessageClick = () => {
+    props.sendMessage();
   };
 
   const onNewMessageTextChange = () => {
     const text = newMessage.current.value;
-    props.dispatch(updateNewMessageTextActionCreator(text));
+    props.updateNewMessageText(text);
   };
 
   return (
@@ -37,12 +39,12 @@ const Dialogs = (props) => {
         <div>
           <textarea
             ref={newMessage}
-            value={props.state.newMessageText}
+            value={state.newMessageText}
             onChange={onNewMessageTextChange}
           ></textarea>
         </div>
         <div>
-          <button onClick={sendMessage}>Отправить</button>
+          <button onClick={onSendMessageClick}>Отправить</button>
         </div>
       </div>
     </div>
