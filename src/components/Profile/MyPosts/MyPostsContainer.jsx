@@ -1,7 +1,5 @@
 import React from "react";
-import { updateNewPostText } from "../../../redux/store";
 import MyPosts from "./MyPosts";
-import Post from "./Post/Post";
 import {
   addPostActionCreator,
   updateNewPostTextActionCreator,
