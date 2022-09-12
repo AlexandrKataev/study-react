@@ -71,20 +71,26 @@ const initialState = {
 export const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE:
-      const date = new Date();
-      //   console.log(`${date.getHours()} : ${date.getMinutes()}`);
-      const newMessage = {
-        id: "you",
-        time: `${date.getHours()}:${date.getMinutes()}`,
-        message: state.newMessageText,
+      const date = new Date().toLocaleTimeString("ru-RU", {
+        hour: "numeric",
+        minute: "numeric",
+      });
+      return {
+        ...state,
+        messagesData: [
+          ...state.messagesData,
+          {
+            id: "you",
+            time: date,
+            message: state.newMessageText,
+          },
+        ],
+        newMessageText: "",
       };
-      state.messagesData.push(newMessage);
-      state.newMessageText = "";
-      return state;
 
     case UPDATE_NEW_MESSAGE_TEXT:
-      state.newMessageText = action.newText;
-      return state;
+      return { ...state, newMessageText: action.newText };
+
     default:
       return state;
   }

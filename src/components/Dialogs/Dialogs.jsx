@@ -13,11 +13,11 @@ const Dialogs = (props) => {
   const state = props.dialogsPage;
   //   console.log(props);
   const dialogsElements = state.dialogsData.map((d) => (
-    <DialogItem name={d.name} id={d.id} avatar={d.avatar} />
+    <DialogItem name={d.name} key={d.id} id={d.id} avatar={d.avatar} />
   ));
 
   const messagesElements = state.messagesData.map((m) => (
-    <Message message={m.message} id={m.id} time={m.time} />
+    <Message message={m.message} key={m.id} id={m.id} time={m.time} />
   ));
 
   const newMessage = React.createRef();

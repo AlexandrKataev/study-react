@@ -5,7 +5,7 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
   const postsElements = props.posts.map((p) => (
-    <Post message={p.message} likes={p.likes} id={p.id} />
+    <Post message={p.message} likes={p.likes} key={p.id} id={p.id} />
   ));
 
   const newPostElement = React.createRef();
