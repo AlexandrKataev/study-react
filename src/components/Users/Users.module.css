@@ -1,11 +1,8 @@
-/* .content {
-  grid-area: c;
-  background-color: rgb(122, 174, 194);
-}
-.content img {
-  width: 100%;
-}
 .avatar img {
   width: 100px;
   border-radius: 50%;
-} */
+}
+.unfollow {
+  opacity: 85%;
+  color: rgb(129, 129, 129);
+}
